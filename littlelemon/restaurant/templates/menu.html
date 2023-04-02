@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<h1>Menu</h1>
+<!--Begin col-->
+<div class="column">
+  <!-- Step 14: Create for loop -->
+  {% for item in menu %}
+  <p>
+    <!-- Step 14: Add DTL variable for name -->
+    <!-- 
+      Item.pk passes the id of the menu item to the url. 
+      When we click on that url, the id of the item gets matched 
+      with the primary key in the database. If there is a match, 
+      that item will be displayed otherwise no item will be displayed.
+     -->
+    <a href="{% url 'menu_item' item.pk %}">    
+      {{ item.name }}
+    </a>
+      <!-- Step 14: Add DTL variable for price -->
+      {{item.price}}.00
+    </span>
+  </p>
+  <!-- Step 14: End or loop -->
+  {% endfor %}
+</div>
+<!--End col-->
+{% endblock %}
